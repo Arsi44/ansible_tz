@@ -118,5 +118,7 @@ ansible-playbook scenario_two.yml
 ### Проверяем, что крон отрабатывает
 tail -n 10 /var/log/syslog  
 Должен получиться такой вывод:  
-```2024-05-06T13:31:01.790595+00:00 ubuntu-2gb-nbg1-2 CRON[12635]: (root) CMD (date)```  
+```
+2024-05-06T13:31:01.790595+00:00 ubuntu-2gb-nbg1-2 CRON[12635]: (root) CMD (date)
+```  
 

@@ -1,0 +1,8 @@
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./mysite.conf:/etc/nginx/nginx.conf
+      - ./site/index.html:/usr/share/nginx/html/index.html

@@ -1,0 +1,33 @@
+1. Используя цикл for вывести дату в формате "2021.04.19_20:12:17" 3 раза с шагом в 2 секунды.  Однострочник.
+Решение:
+for ((i=0; i<3; i++)); do date +"%Y.%m.%d_%H:%M:%S"; sleep 2; done
+Аналог на Python:
+import time
+for _ in range(3):
+    print(time.strftime("%Y.%m.%d_%H:%M:%S"))
+    time.sleep(2)
+
+
+2. Вывод списка файлов существующей директории "/home/" сохранить в файл "/tmp/ls_exist_dir.txt"
+Одновременно отображая вывод на экране.
+Подсказка: tee.
+Решение:
+ls -la /home/ | tee /tmp/ls_exist_dir.txt
+
+3. Попытку вывода списка файлов НЕ существующей директории "ls -al /noexist_dir" сохранить в файл "/tmp/ls_none_exist_dir.txt"
+Подсказка: Используя перенаправление вывода.
+Решение:
+ls /noexist_dir 2>> /tmp/ls_none_exist_dir.txt
+
+4. Имеем файл со следующим содержимым (нужно скопировать в отдельный файл):...
+Решение:
+grep -E '\/socket\.io\/.* [0-9]+\.*' log.txt | awk '$NF > 3'
+
+Аналог на Python:
+with open('log.txt', 'r') as file:
+    for line in file:
+        if "/socket.io/" in line:
+            parts = line.split()
+            duration = float(parts[-1])
+            if duration > 3:
+                print(line.strip())

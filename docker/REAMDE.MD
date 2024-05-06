@@ -4,10 +4,10 @@ https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/linux/
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done  
 
-
-
 sudo apt update
 sudo apt upgrade docker.io docker-compose
+sudo apt-get update
+sudo apt-get install docker-compose-plugin
 
 mkdir docker  
 cd docker
@@ -42,7 +42,7 @@ services:
       - ./mysite.conf:/etc/nginx/nginx.conf
       - ./site/index.html:/usr/share/nginx/html/index.html
 ```
-Теперь при обращении по адресу http://IP:8080/ видим свой html-файл:
+Теперь при обращении по адресу http://IP:8080/ видим свой html-файл:  
 ![img_2.png](img_2.png)
 
 ### Меняем конфигурационный файл (mysite.conf)

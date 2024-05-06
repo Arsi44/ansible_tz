@@ -19,16 +19,16 @@ cd ansible
 ssh-keygen -t rsa -m PEM
 cat ~/.ssh/id_rsa.pub
 
-Далее на слиентских(подчинённых) машинах заносим этот публичный ключ:
+Далее на клиентских(подчинённых) машинах заносим этот публичный ключ:
 nano /root/.ssh/authorized_keys
 ssh-rsa AAAAB3Nza.....
 
-# Создаём фал inventory
+# Создаём файл inventory
 nano hosts.txt
 [staging]
-linux1 ansible_host=IP1 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa1.pem
+server-one ansible_host=IP1 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa1.pem
 [production]
-linux2 ansible_host=IP2 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa2.pem
+server-two ansible_host=IP2 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa2.pem
 # Проверка
 ansible -i hosts.txt all -m ping
 =================================

@@ -1,0 +1,19 @@
+---
+- name: Create directory and install packages
+  hosts: server-one
+  become: true
+  tasks:
+    - name: Create directory
+      file:
+        path: /tmp/example_dir
+        state: directory
+        owner: root
+        group: root
+
+    - name: Install packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - htop
+        - screen

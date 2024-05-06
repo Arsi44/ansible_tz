@@ -1,0 +1,3 @@
+[servers_group]
+server-one ansible_host=IP1
+server-two ansible_host=IP2

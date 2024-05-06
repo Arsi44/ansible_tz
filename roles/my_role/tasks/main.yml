@@ -1,0 +1,29 @@
+---
+- name: Create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - /opt/dir_01
+    - /opt/dir_02
+
+- name: Copy file
+  copy:
+    content: "smt"
+    dest: /opt/dir_01/filename.txt
+    mode: '0755'
+
+- name: Copy template Jinja from source
+  # !
+  template: src=my_file.txt.j2
+    dest: /opt/dir_02/my_file.txt
+
+- name: Add cron job
+  cron:
+    name: Run date command
+    minute: '*'
+    hour: '*'
+    job: date
+    user: root
+

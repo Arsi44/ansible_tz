@@ -4,10 +4,10 @@ https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/linux/
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done  
 
-sudo apt update
-sudo apt upgrade docker.io docker-compose
-sudo apt-get update
-sudo apt-get install docker-compose-plugin
+sudo apt update  
+sudo apt upgrade docker.io docker-compose  
+sudo apt-get update  
+sudo apt-get install docker-compose-plugin  
 
 mkdir docker  
 cd docker
